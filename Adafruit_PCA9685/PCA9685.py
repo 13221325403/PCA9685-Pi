@@ -22,6 +22,8 @@ from __future__ import division
 import logging
 import time
 import math
+import board
+import busio
 
 
 # Registers/etc:
@@ -56,8 +58,9 @@ def software_reset(i2c=None, **kwargs):
     """Sends a software reset (SWRST) command to all servo drivers on the bus."""
     # Setup I2C interface for device 0x00 to talk to all of them.
     if i2c is None:
-        import Adafruit_GPIO.I2C as I2C
-        i2c = I2C
+        # import Adafruit_GPIO.I2C as I2C
+        # i2c = I2C
+        i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
     self._device = i2c.get_i2c_device(0x00, **kwargs)
     self._device.writeRaw8(0x06)  # SWRST
 
@@ -69,8 +72,10 @@ class PCA9685(object):
         """Initialize the PCA9685."""
         # Setup I2C interface for the device.
         if i2c is None:
-            import Adafruit_GPIO.I2C as I2C
-            i2c = I2C
+            # import Adafruit_GPIO.I2C as I2C
+            # i2c = I2C
+            i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+
         self._device = i2c.get_i2c_device(address, **kwargs)
         self.set_all_pwm(0, 0)
         self._device.write8(MODE2, OUTDRV)
