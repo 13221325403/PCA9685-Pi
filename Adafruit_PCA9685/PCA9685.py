@@ -24,6 +24,7 @@ import time
 import math
 import board
 import busio
+import adafruit_bus_device.i2c_device as i2c_device
 
 
 # Registers/etc:
