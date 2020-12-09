@@ -48,10 +48,10 @@ print('Moving servo on channel 0, press Ctrl-C to quit...')
 
 while True:
     # setServoPulse(2,2500)
-    for i in range(500, 2500, 100):
+    for i in range(500, 2500, 20):
         set_servo_pulse(0, i)
         time.sleep(0.02)
 
-    for i in range(2500, 500, -100):
+    for i in range(2500, 500, -20):
         set_servo_pulse(0, i)
         time.sleep(0.02)
