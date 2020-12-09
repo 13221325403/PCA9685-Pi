@@ -89,8 +89,8 @@ class PCA9685:
 
 if __name__ == '__main__':
 
-    i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
-    pwm = PCA9685(i2c, 0x40, debug=True)
+    # i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+    pwm = PCA9685(0x40, debug=True)
     pwm.setPWMFreq(50)
     while True:
         # setServoPulse(2,2500)

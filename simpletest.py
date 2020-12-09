@@ -4,7 +4,7 @@
 # License: Public Domain
 from __future__ import division
 import time
-import board
+# import board
 import busio
 
 # Import the PCA9685 module.
