@@ -4,7 +4,6 @@
 # License: Public Domain
 from __future__ import division
 import time
-# import board
 import busio
 
 # Import the PCA9685 module.
@@ -14,7 +13,7 @@ import Adafruit_PCA9685
 # Uncomment to enable debug output.
 #import logging
 #logging.basicConfig(level=logging.DEBUG)
-# i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+
 # Initialise the PCA9685 using the default address (0x40).
 pwm = Adafruit_PCA9685.PCA9685()
 

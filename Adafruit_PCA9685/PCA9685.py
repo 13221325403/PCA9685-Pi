@@ -75,7 +75,6 @@ class PCA9685(object):
         if i2c is None:
             import Adafruit_GPIO.I2C as I2C
             i2c = I2C
-            # i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
 
         self._device = i2c.get_i2c_device(address, **kwargs)
         self.set_all_pwm(0, 0)
